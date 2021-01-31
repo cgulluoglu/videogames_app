@@ -6,7 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.squareup.picasso.Picasso
-import kotlinx.android.synthetic.main.item_page.view.*
+import kotlinx.android.synthetic.main.item_viewpager.view.*
 
 class ViewPagerAdapter(val VideoGamesList: List<VideoGame>?) : RecyclerView.Adapter<ViewPagerAdapter.Pager2ViewHolder>(){
 
@@ -23,7 +23,7 @@ class ViewPagerAdapter(val VideoGamesList: List<VideoGame>?) : RecyclerView.Adap
         parent: ViewGroup,
         viewType: Int
     ): ViewPagerAdapter.Pager2ViewHolder {
-        return Pager2ViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.item_page, parent, false))
+        return Pager2ViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.item_viewpager, parent, false))
     }
 
     override fun getItemCount(): Int {
@@ -33,7 +33,7 @@ class ViewPagerAdapter(val VideoGamesList: List<VideoGame>?) : RecyclerView.Adap
     override fun onBindViewHolder(holder: ViewPagerAdapter.Pager2ViewHolder, position: Int) {
         val currentGame = VideoGamesList?.get(position)
         holder.itemView.apply {
-            Picasso.get().load(currentGame?.background_image).into(ivTopThree); //picasso kullandık
+            Picasso.get().load(currentGame?.background_image).into(ivTopThree) //using picasso
             tvVideoGameTitle.text = currentGame?.name
         }
         holder.VideoGame = currentGame

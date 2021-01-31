@@ -3,6 +3,7 @@ package com.example.games
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Parcelable
+import android.widget.Toast
 import com.example.games.fragments.FavoritesFragment
 import com.example.games.fragments.HomeFragment
 import com.google.gson.GsonBuilder
@@ -58,7 +59,9 @@ class MainActivity : AppCompatActivity() {
             }
 
             override fun onFailure(call: Call, e: IOException) {
-                println("Failed to connect")
+                runOnUiThread {
+                    Toast.makeText(this@MainActivity, "Check your internet connection", Toast.LENGTH_LONG).show()
+                }
             }
         })
     }

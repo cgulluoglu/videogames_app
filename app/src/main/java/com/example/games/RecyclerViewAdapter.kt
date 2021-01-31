@@ -6,13 +6,13 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.squareup.picasso.Picasso
-import kotlinx.android.synthetic.main.item_game.view.*
+import kotlinx.android.synthetic.main.item_recyclerview.view.*
 
 class RecyclerViewAdapter(val VideoGamesList: List<VideoGame>): RecyclerView.Adapter<CustomViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CustomViewHolder {
         return CustomViewHolder(
             LayoutInflater.from(parent.context).inflate(
-                R.layout.item_game,
+                R.layout.item_recyclerview,
                 parent,
                 false
             )
@@ -30,7 +30,7 @@ class RecyclerViewAdapter(val VideoGamesList: List<VideoGame>): RecyclerView.Ada
             tvVideoGameRating.text = currentGame.rating
             tvVideoGameReleaseDate.text = releaseDate
             tvVideoGameTitle.text = currentGame.name
-            Picasso.get().load(currentGame.background_image).into(ivVideoGameImg) //picasso kullandık
+            Picasso.get().load(currentGame.background_image).into(ivVideoGameImg) //using picasso
         }
         holder.VideoGame = currentGame
     }
